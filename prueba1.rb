@@ -22,20 +22,20 @@ while continuar == true
 
     data.each do |line| # recorrer cada line
       arreglo = line.split(', ') # me sapara los datos por ", "
-      calculo_promedio = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5.0 # calcula el promedio con decimales (float) porque lo dividi por un decimal
       nombre = arreglo[0]
+      calculo_promedio = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5.0 # calcula el promedio con decimales (float) porque lo dividi por un decimal
       promedio_alumno = [nombre, calculo_promedio] # primera vuelta toma el caluclo de nota de la primera persona ej ['David', 3.6]
       arreglo_totales.push(promedio_alumno) # con el push agrego un elemento al final del arreglo, en este caso un nuevo arreglo [['David', 10], ['Mai', 7]]
 
       #arreglo_totales
       #[['David, 7.6'], ['Mai', 6.5], ['Gonzalo', 8], ['JP', 10]]
-    file_calculo = File.open('notas_calculadas', 'w')
-    arreglo_totales.each do |alumno_con_su_promedio|
-      file_calculo.puts "#{alumno_con_su_promedio[0]}, #{alumno_con_su_promedio[1]}"
+      file_calculo = File.open('notas_calculadas', 'w')
+      arreglo_totales.each do |alumno_con_su_promedio|
+        file_calculo.puts "#{alumno_con_su_promedio[0]}, #{alumno_con_su_promedio[1]}"
+      end
+      file_calculo.close
     end
-    file_calculo.close
-    end
-    puts "Se ha generado el archivo de promedios."
+    puts 'Se ha generado el archivo de promedios de los alumnos.'
   end
 
 
@@ -44,15 +44,44 @@ while continuar == true
     data = file.readlines
     file.close
 
-    arreglo_inasistencias_totales = []
+    # arreglo_inasistencias_totales = [] #NO SE SI ESTA DE MÁS
     arreglo_cuenta = 0
 
     data.each do |line|
       arreglo = line.split (', ')
       nombre = arreglo[0]
-      inasistencias = arreglo.count("A") + arreglo.count("A\n")
-      puts(nombre, inasistencias)
+      calculo_inasistencias = arreglo.count("A") + arreglo.count("A\n")
+      inasistencia_alumno = [nombre, calculo_inasistencias]
+      puts(inasistencia_alumno)
     end
+  end
+
+  if opcion.to_i == 3 #CORREGIR!!! HAY QUE HACERLO CON UN MÉTODO
+    file = File.open('notas.csv', 'r')
+    data = file.readlines
+    file.close
+
+    arreglo_aprobado = []
+
+    data.each do |line|
+      arreglo = line.split(', ') # me sapara los datos por ", "
+      nombre = arreglo[0]
+      if aprobado = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5.0 >= 5.0
+        puts nombre
+      end
+    end
+  end
+
+  if opcion.to_i == 4
+    abort('¡Nos vemos pronto!') #termina el programa
+  end
+
+  if opcion.to_i > 4
+    puts 'Opción Invalida. Por favor ingresa una opción del 1 al 4.'
+  end
+
+  if opcion.to_i < 1
+    puts 'Opción Invalida. Por favor ingresa una opción del 1 al 4.'
   end
 
 end
