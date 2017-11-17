@@ -45,12 +45,17 @@ while continuar == true
     data = file.readlines
     file.close
 
+    inasistencia_alumno = []
+
     data.each do |line|
       arreglo = line.split (', ')
       nombre = arreglo[0]
       calculo_inasistencias = arreglo.count("A") + arreglo.count("A\n")
-      inasistencia_alumno = [nombre, calculo_inasistencias]
-      puts(inasistencia_alumno)
+      inasistencia_alumno.push([nombre, calculo_inasistencias])
+    end
+
+    inasistencia_alumno.each do |ele|
+      puts "#{ele.first} tuvo #{ele.last} inasistencias."
     end
   end
 
@@ -64,11 +69,12 @@ def aprobados(nota = 5.0)
     arreglo = line.split(', ') # me sapara los datos por ", "
     nombre = arreglo[0]
     if aprobado = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5.0 >= nota
-      puts nombre
+      # puts nombre
+      puts "#{nombre} aprobo."
     end
   end
 end
-  if opcion.to_i == 3 #CORREGIR!!! HAY QUE HACERLO CON UN MÉTODO
+  if opcion.to_i == 3
     aprobados(5)
   end
 
