@@ -4,7 +4,7 @@ prompt = "> "
 while continuar == true
   puts '-----------------------'
   puts '[1] Promedio del alumno'
-  puts '[2] Inasisetncias'
+  puts '[2] Inasistencias'
   puts '[3] Alumnos aprobados'
   puts '[4] Salir'
   puts '-----------------------'
