@@ -13,6 +13,7 @@ while continuar == true
 
   opcion = gets # me permite ingresar en el temrinal un letra/número
 
+#[1] Promedio del alumno
   if opcion.to_i == 1
     file = File.open('notas.csv', 'r')
     data = file.readlines # retorna un arreglo donde cada linea es un elmento del archivo
@@ -38,14 +39,11 @@ while continuar == true
     puts 'Se ha generado el archivo de promedios de los alumnos.'
   end
 
-
+#[2] Inasistencias
   if opcion.to_i == 2
     file = File.open('notas.csv', 'r')
     data = file.readlines
     file.close
-
-    # arreglo_inasistencias_totales = [] #NO SE SI ESTA DE MÁS
-    arreglo_cuenta = 0
 
     data.each do |line|
       arreglo = line.split (', ')
@@ -56,29 +54,34 @@ while continuar == true
     end
   end
 
-  if opcion.to_i == 3 #CORREGIR!!! HAY QUE HACERLO CON UN MÉTODO
-    file = File.open('notas.csv', 'r')
-    data = file.readlines
-    file.close
+#[3] Alumnos aprobados
+def aprobados(nota = 5.0)
+  file = File.open('notas.csv', 'r')
+  data = file.readlines
+  file.close
 
-    arreglo_aprobado = []
-
-    data.each do |line|
-      arreglo = line.split(', ') # me sapara los datos por ", "
-      nombre = arreglo[0]
-      if aprobado = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5.0 >= 5.0
-        puts nombre
-      end
+  data.each do |line|
+    arreglo = line.split(', ') # me sapara los datos por ", "
+    nombre = arreglo[0]
+    if aprobado = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5.0 >= nota
+      puts nombre
     end
   end
+end
+  if opcion.to_i == 3 #CORREGIR!!! HAY QUE HACERLO CON UN MÉTODO
+    aprobados(5)
+  end
 
+#[3] Salir
   if opcion.to_i == 4
     abort('¡Nos vemos pronto!') #termina el programa
   end
 
+#[otra opción] al poner otra opción muestra que es inválida y arroja nuevamente el menú y la posibilidad de volver a ingresar una opción
   if opcion.to_i > 4
     puts 'Opción Invalida. Por favor ingresa una opción del 1 al 4.'
   end
+
 
   if opcion.to_i < 1
     puts 'Opción Invalida. Por favor ingresa una opción del 1 al 4.'
