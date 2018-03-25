@@ -12,7 +12,7 @@ while continuar == true
   print prompt
 
   opcion = gets # me permite ingresar en el temrinal un letra/número
-
+print opcion
 #[1] Promedio del alumno
   if opcion.to_i == 1
     file = File.open('notas.csv', 'r')
@@ -43,6 +43,8 @@ while continuar == true
   if opcion.to_i == 2
     file = File.open('notas.csv', 'r')
     data = file.readlines
+    #puede haberse filtrado el \n aca con
+    #  data = file.readlines.map{ |r| r.chomp}
     file.close
 
     inasistencia_alumno = []
@@ -51,6 +53,8 @@ while continuar == true
       arreglo = line.split (', ')
       nombre = arreglo[0]
       calculo_inasistencias = arreglo.count("A") + arreglo.count("A\n")
+      # en el caso de filtrar no es necesario colocar  arreglo.count("A\n"
+      #   calculo_inasistencias = arreglo.count("A")
       inasistencia_alumno.push([nombre, calculo_inasistencias])
     end
 
@@ -71,6 +75,9 @@ def aprobados(nota = 5.0)
     if aprobado = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5.0 >= nota
       # puts nombre
       puts "#{nombre} aprobo."
+      #sería bueno como código agregar un else, pese a que no lo pide el ejercicio, ya que te pones en el caso atipico
+      #tenlo en consideración a futuro,
+      #para programar siempre debes considerar casos nulos, cero o que se alejen de lo pedido como una posibilidad
     end
   end
 end
@@ -85,6 +92,8 @@ end
 
 #[otra opción] al poner otra opción muestra que es inválida y arroja nuevamente el menú y la posibilidad de volver a ingresar una opción
   if opcion.to_i > 4
+    #  if opcion.to_i > 4 || opcion.to_i < 1 es una opcion más corta, sin embargo resuelve el problema
+    #trata de buscar no repetir codigo
     puts 'Opción Invalida. Por favor ingresa una opción del 1 al 4.'
   end
 
