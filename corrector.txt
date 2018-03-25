@@ -49,7 +49,8 @@ Item 5 : Salir
 a) Indentación correcta: 0.5
 b) Correcto uso del lenguaje: 0.4 
 	Comentarios:
-	Se resuelve el problema, pero hay código redundante (ver nota en el codigo)
+	Se resuelve el problema, pero hay código redundante (ver nota en el codigo), 
+	es una mala práctica repetir código por eso el descuento, para que lo tengas en consideración
 c) Resolución del problema: 1.0
 
 
