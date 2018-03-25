@@ -25,6 +25,7 @@ print opcion
       arreglo = line.split(', ') # me sapara los datos por ", "
       nombre = arreglo[0]
       calculo_promedio = (arreglo[1].to_i + arreglo[2].to_i + arreglo[3].to_i + arreglo[4].to_i + arreglo[5].to_i)/5.0 # calcula el promedio con decimales (float) porque lo dividi por un decimal
+      #se coloca arreglo.length
       promedio_alumno = [nombre, calculo_promedio] # primera vuelta toma el caluclo de nota de la primera persona ej ['David', 3.6]
       arreglo_totales.push(promedio_alumno) # con el push agrego un elemento al final del arreglo, en este caso un nuevo arreglo [['David', 10], ['Mai', 7]]
 

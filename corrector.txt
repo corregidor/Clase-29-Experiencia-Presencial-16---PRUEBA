@@ -23,18 +23,21 @@ Item 2 : Promedios por alumnos en archivo adicional
 
 a) Indentación correcta: 0.5
 b) Correcto uso del lenguaje: 0.5 
-c) Resolución del problema: 1.0
+c) Resolución del problema: 0.9
 	Comentarios:
 	Se genera un archivo y cumple con las normas de puntuación requeridos,
 	además del espaciado entre elementos
+	Se debe parametrizar el largo del arreglo
 
-Item 3 : Conteo de inasistencias totales por alumno en pantalla
+Item 3 : Conteo de inasistencias totales en pantalla
 
 a) Indentación correcta: 0.5
 b) Correcto uso del lenguaje: 0.5 
 c) Resolución del problema: 1.0
 	Comentarios:
 	Siempre se puede utilizar menos código para lo mismo (mini correccion en el archivo)
+	No se especifica que debe ser por alumno, pero como representa un mayor desafio
+	se considera buena
 
 Item 4 : Alumnos aprobados por pantalla
 
