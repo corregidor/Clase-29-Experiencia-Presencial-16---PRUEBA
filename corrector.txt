@@ -4,8 +4,7 @@ Dentro de cada item se espera:
 	a) Indentacion correcta : 0.5 pt
 	b) Correcto uso del lenguaje: 0.5 pt 
 	c) Resolución del problema: 1 pt
-Se dará un plus por algo fuera de lo pedido: 1 pt en el total de la prueba
-si alcanzó el máximo no se considera más allá de lo permitido de 10 pt
+
 
 Item 1 : Menu
 
