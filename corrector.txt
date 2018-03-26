@@ -43,9 +43,10 @@ Item 4 : Alumnos aprobados por pantalla
 
 a) Indentación correcta: 0.5
 b) Correcto uso del lenguaje: 0.5 
-c) Resolución del problema: 1.0
+c) Resolución del problema: 0.9
 	Comentarios:
 	Solución remasterizada en el ejercicio(ver nota)
+	Se debe parametrizar el largo del arreglo
 
 Item 5 : Salir
 
